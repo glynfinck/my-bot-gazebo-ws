@@ -8,6 +8,9 @@
   <xacro:include filename="$(find mybot_description)/urdf/mybot.gazebo" />
   <xacro:include filename="$(find mybot_description)/urdf/materials.xacro" />
   <xacro:include filename="$(find mybot_description)/urdf/macros.xacro" />
+  <xacro:include filename="$(find realsense_gazebo_plugin)/urdf/realsense-RS200.macro.xacro"/>
+
+  <!-- <xacro:include filename="$(find mybot_description)/urdf/imu.urdf.xacro"/> -->
 
 
   <link name='chassis'>
@@ -189,6 +192,17 @@
     <child link="camera"/>
   </joint>
 
+
+  <!-- <xacro:realsense-rs200 prefix="" parent="chassis">
+      <origin xyz=".15 0 .1" rpy="0 0 0" />   
+  </xacro:realsense-rs200> -->
+
+  <!--Imu link and plugin-->
+  <!-- <xacro:imu_sensor xyz=".15 0 ${0 - .1}" 
+                rpy="1 0 0"
+                parent="chassis">
+  </xacro:imu_sensor>
+   -->
 
   <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
